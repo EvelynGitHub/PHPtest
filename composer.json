@@ -1,0 +1,29 @@
+{
+    "name": "emprego/phptest",
+    "description": "Um teste prático que consome uma API e salva os dados num banco",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Evelyn Francisco Brandão",
+            "email": "evelynbrandao15@gmail.com",
+            "role": "Develepor"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\": "src"
+        },
+        "files": [
+            "env.php"
+        ]
+    }
+}
