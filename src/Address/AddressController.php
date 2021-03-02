@@ -2,6 +2,8 @@
 
 namespace App\Address;
 
+use Exception;
+use SimpleXMLElement;
 
 class AddressController
 {
@@ -22,23 +24,42 @@ class AddressController
                 $format = explode("-", $cep);
 
                 if ((strlen($format[0]) == 5 && strlen($format[1]) == 3)) {
-                    $address = new Address();
+                    try {
+                        $address = new Address();
 
-                    $value = $address->findByCep($cep);
+                        $value = $address->findByCep($cep);
 
-                    if ($value) {
-                        $msg = $value;
-                    } else {
-                        $msg = "Desculpe, tivemos um erro inesperado, por favor tente mais tarde!";
+                        if ($value) {
+                            $msg = [
+                                "msg" => $value,
+                                "error" => false,
+                                "search_api" => false
+                            ];
+                        } else {
+                            $msg = [
+                                "msg" => "CEP não encontrado no Banco de Dados, consultando API...",
+                                "error" => false,
+                                "search_api" => true
+                            ];
+                        }
+                    } catch (Exception $e) {
+                        $msg = [
+                            "msg" => "Desculpe, tivemos um erro inesperado, por favor tente mais tarde! ",
+                            "error" => true,
+                            "exception" => $e
+                        ];
                     }
                 } else {
-                    $msg = "A formatação deve seguir o formato '12345-123'";
+                    $msg = [
+                        "msg" => "A formatação deve seguir o formato '12345-123'",
+                        "error" => true
+                    ];
                 }
             } else {
-                $msg = "Número de digitos inválido";
+                $msg = ["msg" => "Número de digitos inválido", "error" => true];
             }
         } else {
-            $msg = 'Só é permitido números e hifens';
+            $msg = ["msg" => 'Só é permitido números e hifens', "error" => true];
         }
         // $cep = str_replace('-', "", $cep);
 
@@ -47,11 +68,6 @@ class AddressController
 
     public function setAddress(array $data)
     {
-        // var_dump($data);
-        // return json_encode($data);
-
-        // die;
-
         $inputs = [
             "cep",
             "logradouro",
