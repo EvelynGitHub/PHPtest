@@ -16,7 +16,7 @@ services:
     container_name: db
     restart: always
     volumes:
-      - ./docs/db:/var/lib/mysql
+       - ./docs/db:/var/lib/mysql
       # - ./docs/db:/var/lib/mysql
       # - ./docs/script.sql :/docker-entrypoint-initdb.d/script.sql
     environment:
