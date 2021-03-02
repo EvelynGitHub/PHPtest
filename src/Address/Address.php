@@ -15,7 +15,7 @@ class Address extends Crud
 
     public function findByCep(string $cep)
     {
-        $crud = $this->select()->from("address")->where("cep = ?", [$cep]);
+        $crud = $this->select()->from("address")->where("cep = ?", [$cep])->execute("fetch");
 
         return $crud;
     }
