@@ -14,13 +14,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema PHPtest
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `PHPtest` ;
-USE `PHPtest` ;
+
+USE `phptest` ;
 
 -- -----------------------------------------------------
--- Table `PHPtest`.`address`
+-- Table `phptest`.`address`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `PHPtest`.`address` (
+CREATE TABLE IF NOT EXISTS `phptest`.`address` (
   `cep` VARCHAR(9) NOT NULL,
   `logradouro` VARCHAR(100) NULL,
   `complemento` VARCHAR(150) NULL,
@@ -32,10 +32,14 @@ CREATE TABLE IF NOT EXISTS `PHPtest`.`address` (
   `ddd` VARCHAR(45) NULL,
   `siafi` VARCHAR(45) NULL,
   PRIMARY KEY (`cep`),
-  UNIQUE INDEX `cep_UNIQUE` (`cep` ASC) VISIBLE)
+  UNIQUE INDEX `cep_UNIQUE` (`cep` ASC))
 ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+SET character_set_client = utf8;
+SET character_set_connection = utf8;
+SET character_set_results = utf8;
+SET collation_connection = utf8_general_ci;
