@@ -47,6 +47,11 @@ class AddressController
 
     public function setAddress(array $data)
     {
+        // var_dump($data);
+        // return json_encode($data);
+
+        // die;
+
         $inputs = [
             "cep",
             "logradouro",
@@ -70,7 +75,7 @@ class AddressController
 
         $address = new Address();
 
-        $value = $address->create($data);
+        $value = $address->create(array_filter($data));
 
         if ($value) {
             return json_encode("Endereço cadastrado!");
