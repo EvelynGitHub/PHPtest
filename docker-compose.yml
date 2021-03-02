@@ -1,16 +1,31 @@
-php:
-  build: .
-  ports:
-   - "80:80"
-   - "443:443"
-  volumes: 
-   - .:/var/www/html
-  links:
-   - db
-db:
-  image: mysql:5.7
-  volumes:
-   - /var/lib/mysql
-  environment:
-   - MYSQL_ROOT_PASSWORD=toor
-   - MYSQL_DATABASE=phptest
+version: "3"
+services:
+  php:
+    build: .
+    container_name: php
+    ports:
+    - "80:80"
+    - "443:443"
+    volumes:
+    - .:/var/www/html
+    links:
+      - db
+
+  db:
+    image: mysql:5.7
+    container_name: db
+    restart: always
+    volumes:
+      - ./docs/db:/var/lib/mysql
+      # - ./docs/db:/var/lib/mysql
+      # - ./docs/script.sql :/docker-entrypoint-initdb.d/script.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: "phptest"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "toor"
+    ports:
+      - "3306:3306"
+
+# sudo docker exec -i db mysql -u root -ptoor phptest < ./docs/script.sql
