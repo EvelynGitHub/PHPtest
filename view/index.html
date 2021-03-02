@@ -4,13 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- INICIO: Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- FIM: Bootstrap -->
 
+    <style>
+        .text {
+            text-align: center;
+            color: #FFF;
+        }
+    </style>
 
     <title>PHPtest</title>
 </head>
@@ -19,58 +25,187 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Top navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">PHPtest</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-responsivo"
+                aria-controls="navbar-responsivo" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+            <div class="collapse navbar-collapse" id="navbar-responsivo">
+
+                <ul class="nav navbar-nav mr-auto" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                            aria-controls="pills-home" aria-selected="true">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" id="pills-duvidas-tab" data-toggle="pill" href="#pills-duvidas" role="tab"
+                            aria-controls="pills-duvidas" aria-selected="false">Dúvidas Pendentes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <a class="nav-link" id="pills-get-started-tab" data-toggle="pill" href="#pills-get-started"
+                            role="tab" aria-controls="pills-get-started" aria-selected="false">Por onde começar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-doc-tab" href="https://github.com/EvelynGitHub/PHPtest"
+                            aria-selected="false" title="GitHub">Documentação</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+
+
             </div>
         </div>
     </nav>
 
     <main class="container">
-        <div class="bg-light p-5 rounded">
-            <h1>Navbar example</h1>
-            <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you
-                scroll,
-                this navbar remains in its original position and moves with the rest of the page.</p>
-            <a class="btn btn-lg btn-primary" href="/docs/5.0/components/navbar/" role="button">View navbar docs
-                &raquo;</a>
+        <div id="message">
+
+        </div>
+
+        <div class="jumbotron p-4 rounded">
+
+            <div class="tab-content" id="pills-tabContent">
+
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <h2>Sobre o PHPtest</h2>
+                    <p class="">
+                        Este projeto é realizado como teste técnico para o processo seletivo da empresa CD2 Serviços em
+                        Tecnologia da Informação Ltda.
+                    </p>
+                    <p>
+                        Sendo este um serviço para recuperar endereço apartir de CEP.
+                    </p>
+                    <a class="btn btn-md btn-primary" href="https://github.com/cd2tec/PHPtest" role="button">
+                        Ver detalhes do teste &raquo;
+                    </a>
+                </div>
+
+                <div class="tab-pane fade" id="pills-duvidas" role="tabpanel" aria-labelledby="pills-duvidas-tab">
+                    <h3>Dúvidas</h3>
+                    <ul class="">
+                        <li>
+                            Era permitido usar JQuery para as requisições? Isso porquê o bootstrap usa JQuery,
+                            mas dizia também <i>"JavaScript (Não usar framework)."</i> e alguns consideram JQuery um
+                            framework.
+                        </li>
+                        <li>
+                            Os dados que eram para ser salvos, eram os que vinham direto da API do ViaCep?
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-pane fade" id="pills-get-started" role="tabpanel"
+                    aria-labelledby="pills-get-started-tab">
+                    <h4>Como usar:</h4>
+                    <p class="">
+                        Para usar o PHPtest é muito simples, basta digitar um CEP válido logo abaixo e pressionar
+                        ENTER, TAB ou o Botão
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                        .
+                        Em seguinda os campos do fomulário serão preenchidos
+                        automaticamente.
+                    </p>
+                    <p class="">
+                        Se quiser acompanhar os que está acontecendo, fique de olho nas menssagens que aparecem acima.
+                    </p>
+                </div>
+            </div>
+
         </div>
 
 
         <form class="">
-            <div class="mb-3">
-                <label for="cep" class="form-label">CEP:</label>
-                <input type="text" class="form-control" id="cep" aria-describedby="cepHelp" maxlength="9">
-                <div id="cepHelp" class="form-text">Digite o CEP para te ajudar a preencher o endereço.</div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="cep" class="form-label">CEP:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="cep" maxlength="9" placeholder="00000-000" required>
+                        <div class="input-group-prepend">
+                            <button type="submit" class="btn btn-dark" id="search">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="logradouro" class="form-label">Logradouro:</label>
+                    <input type="text" class="form-control" id="logradouro" placeholder="Rua, AV ...">
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary" id="search">Pesquisar</button>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="Bairro" class="form-label">Bairro:</label>
+                    <input type="text" class="form-control" id="bairro" placeholder="Bairro...">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="localidade" class="form-label">Cidade:</label>
+                    <input type="text" class="form-control" id="localidade" placeholder="Cidade ...">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="estado" class="form-label">Estado:</label>
+                    <input type="text" class="form-control" id="estado" placeholder="UF">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="ibge" class="form-label">IBGE:</label>
+                    <input type="text" class="form-control" id="ibge" placeholder="IBGE">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="complemento" class="form-label">Complemento:</label>
+                    <input type="text" class="form-control" id="complemento" placeholder="complemento...">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="ddd" class="form-label">DDD:</label>
+                    <input type="text" class="form-control" id="ddd" placeholder="ddd...">
+                </div>
+                <div class="form-group col">
+                    <label for="siafi" class="form-label">Siafi:</label>
+                    <input type="text" class="form-control" id="siafi" placeholder="Siafi ...">
+                </div>
+                <div class="form-group col">
+                    <label for="gia" class="form-label">GIA:</label>
+                    <input type="text" class="form-control" id="gia" placeholder="GIA">
+                </div>
+            </div>
+            <!-- <button type="submit" class="btn btn-primary" id="search">Pesquisar</button> -->
         </form>
-
-
 
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    <footer class="bg-dark mt-2 position-sticky sticky-bottom">
+        <div class="text">
+            Desenvolvido por Evelyn Francisco Brandão <br>
+            02/03/2021
+        </div>
+
+    </footer>
+
+
+    <!-- INICIO: JS do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!-- FIM: JS do Bootstrap -->
+
     <script src="./js/index.js"></script>
 </body>
 
