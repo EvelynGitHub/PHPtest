@@ -82,7 +82,7 @@ sudo docker-compose up -d
 Depois de executar os passos acima, abra um navegador e acesse <a>http://localhost/<a> ou 
 <a>http://localhost/view<a>. A tela princial (a única tela na verdade), deve aparece. Agora você já pode teste a aplicação. 
 
-**Obs.:** Caso o sistema não funcione de primeira, pode ser que o docker ainda esteja <i>se preparando<i>, então espere mais um pouco antes de tentar de novo.
+**Obs.:** Caso o sistema não funcione de primeira, pode ser que o docker ainda esteja <i>se preparando</i>, então espere mais um pouco antes de tentar de novo.
 
 Depois de testar você pode querer parar o conatiner docker, para isso:
 ```bash
@@ -123,8 +123,8 @@ composer install
   - Acesse: <a>http://localhost/phpmyadmin<a>
   - Execute o script abaixo:
   ```sql
-    CREATE DATABASE phptest
-    USE phptest ;
+    CREATE DATABASE phptest;
+    USE phptest;
 
     CREATE TABLE IF NOT EXISTS phptest.address (
       cep VARCHAR(9) NOT NULL,
