@@ -144,7 +144,44 @@ composer install
   ```
 
 4 - Agora que o banco já foi criado, entre na pasta do projeto (/htdocs/PHPtest) e abra o arquivo 
-<code> env.php </code>. Mude o valor da **Variável de ambiente URL** para ficar de acordo com o seu  Lampp/Xampp, algo similar (ou igual à) <a>http://localhost/PHPtest<a>.
+<code> env.php </code>. Mude o valor da **Variável de ambiente URL** para ficar de acordo com o seu  Lampp/Xampp, algo similar (ou igual à) <a>http://localhost/PHPtest<a>. Mude também qualquer outra váriavel de acesso ao banco que seja diferente do que está no arquivo.
+O Arquivo <code> env.php </code> deve mudar de algo assim:
+```php
+  <?php
+    // Variável de ambiente URL
+    putenv("URL=http://localhost");
+
+    putenv("DB_DRIVE=mysql");
+
+    putenv("DB_HOST=db");
+
+    putenv("DB_PORT=3306");
+
+    putenv("DB_NAME=phptest");
+
+    putenv("DB_USER_NAME=root");
+
+    putenv("DB_USER_PASSWD=");
+```
+Para algo como:
+```php
+  <?php
+
+    // Variável de ambiente URL
+    putenv("URL=http://localhost/PHPtest");
+
+    putenv("DB_DRIVE=mysql");
+
+    putenv("DB_HOST=localhost");
+
+    putenv("DB_PORT=3306");
+
+    putenv("DB_NAME=phptest");
+
+    putenv("DB_USER_NAME=root");
+
+    putenv("DB_USER_PASSWD=");
+```
 
 5 - A ultima modificação é no arquivo <code> index.js </code>, dentro de .../PHPtest/view/js/index.js. A modificação vai na primeira linha, ela deve mudar de:
 ```js
